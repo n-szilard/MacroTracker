@@ -42,6 +42,13 @@ namespace MacroTracker
             Kategoria = kategoria;
         }
 
+        public Kaja(string kajaNev, int gram, int kaloria, string kategoria)
+        {
+            KajaNev = kajaNev;
+            Gram = gram;
+            Kaloria = kaloria;
+            Kategoria = kategoria;  
+        }
 
         public override string ToString()
         {
