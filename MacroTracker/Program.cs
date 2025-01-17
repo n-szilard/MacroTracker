@@ -1,7 +1,10 @@
-﻿internal class Program
+﻿using MacroTracker;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        List<Kaja> kajaLista = new List<Kaja>();
+        Beolvaso.Beolvasas();
     }
 }
