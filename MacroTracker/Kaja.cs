@@ -52,7 +52,7 @@ namespace MacroTracker
 
         public override string ToString()
         {
-            return $"Étel neve: {KajaNev}, Gram: {Gram}, Kalória: {Kaloria}, Fehérje: {Feherje}, Zsír: {Zsir}, Telitett zsír: {TelitettZsir}, Rost: {Rost}, Szénhidrát: {Szenhidrat}, Étel kategóriája: {Kategoria}"
+            return $"Étel neve: {KajaNev}, Gram: {Gram}, Kalória: {Kaloria}, Fehérje: {Feherje}, Zsír: {Zsir}, Telitett zsír: {TelitettZsir}, Rost: {Rost}, Szénhidrát: {Szenhidrat}, Étel kategóriája: {Kategoria}";
         }
         
 
