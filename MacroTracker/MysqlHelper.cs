@@ -24,5 +24,23 @@ namespace MacroTracker
                 Console.WriteLine("Hiba a kapcsolat megnyitásakor: " + ex.Message);
             }
         }
+
+        public static void TableInsert(string tableName, string values)
+        {
+            try
+            {
+                using (MySqlCommand command = new MySqlCommand($"INSERT INTO {tableName} VALUES ({values})", connection))
+                {
+                    command.ExecuteNonQuery();
+                    Console.WriteLine("Sikeres insert!");
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine($"Hiba az insert közben: {error.Message}");
+            }
+        }
+
+
     }
 }
