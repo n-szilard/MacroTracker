@@ -5,10 +5,9 @@ internal class Program
 
     private static void Main(string[] args)
     {
-        //List<Kaja> kajaLista = new List<Kaja>();
-        //Beolvaso.Beolvasas();
-        /*AdatokKiirasa();            */
-        Etelfelvetel();
+        List<Kaja> kajaLista = Beolvaso.Beolvasas();
+        AdatokKiirasa(kajaLista);
+        //Etelfelvetel();
 
 
     }
@@ -28,14 +27,14 @@ internal class Program
         string felvettzsir = Console.ReadLine();
 
     }
-    
 
-    /*private static void AdatokKiirasa()
+
+    private static void AdatokKiirasa(List<Kaja> lista)
     {
-        foreach(dolog in dolog)
+        foreach (var item in lista)
         {
-            Console.WriteLine(adat);
+            Console.WriteLine(item.ToString());
         }
     }
-    */
+
 }
