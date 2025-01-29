@@ -6,10 +6,19 @@ internal class Program
     private static void Main(string[] args)
     {
         List<Kaja> kajaLista = Beolvaso.Beolvasas();
-        AdatokKiirasa(kajaLista);
+        //AdatokKiirasa(kajaLista);
+        MysqlHelper.KapcsolodasAdatbazishoz();
         //Etelfelvetel();
+        AdatbazisInsert(kajaLista);
+    }
 
-
+    private static void AdatbazisInsert(List<Kaja> kajaLista)
+    {
+        foreach (var item in kajaLista)
+        {
+            MysqlHelper.TableInsert("copy_table", item.toInsertFormat());
+            //Console.WriteLine(item.toInsertFormat());
+        }
     }
 
     private static void Etelfelvetel()
