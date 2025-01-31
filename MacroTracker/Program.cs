@@ -6,9 +6,9 @@ internal class Program
     private static void Main(string[] args)
     {
         List<Kaja> kajaLista = Beolvaso.Beolvasas();
-        KevesKaloriaKajak(kajaLista);
-        HusokTaperteke(kajaLista);
-        ZoldsegekTaperteke(kajaLista);
+        //KevesKaloriaKajak(kajaLista);
+        //HusokTaperteke(kajaLista);
+        //ZoldsegekTaperteke(kajaLista);
         //MysqlHelper.KapcsolodasAdatbazishoz();
         //AdatbazisInsert(kajaLista);
         //AdatokKiirasa(kajaLista);
@@ -17,7 +17,24 @@ internal class Program
         //Sortores();
         //MagasKaloriaKajak(kajaLista);
         //Sortores();
+        //LegkaloriasabbAlkoholok(kajaLista);
+
+
         Menu();
+    }
+
+    private static void LegkaloriasabbAlkoholok(List<Kaja> kajaLista)
+    {
+        Console.WriteLine("Legkalóriadúsabb italok:");
+        Sortores();
+        foreach (var item in kajaLista)
+        {
+            if (item.Kategoria == "Drinks Alcohol Beverages" && item.Kaloria>150)
+            {
+                Console.WriteLine(item.ToString());
+            }
+        }
+        Sortores();
     }
 
     private static void Menu()
