@@ -54,7 +54,10 @@ namespace MacroTracker
         {
             return $"Étel neve: {KajaNev}, Gram: {Gram}, Kalória: {Kaloria}, Fehérje: {Feherje}, Zsír: {Zsir}, Telitett zsír: {TelitettZsir}, Rost: {Rost}, Szénhidrát: {Szenhidrat}, Étel kategóriája: {Kategoria}";
         }
-        
 
+        public string toInsertFormat()
+        {
+            return $"\"{KajaNev}\",\"{KajaKulfMertek}\",{Gram},{Kaloria},{Feherje},{Zsir},{TelitettZsir},{Rost},{Szenhidrat},\"{Kategoria}\"";
+        }
     }
 }

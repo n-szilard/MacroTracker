@@ -1,5 +1,4 @@
 ﻿using MacroTracker;
-using System.Reflection.Emit;
 
 internal class Program
 {
@@ -14,6 +13,9 @@ internal class Program
         Sortores();
         MagasKaloriaKajak(kajaLista);
         Sortores();
+        MysqlHelper.KapcsolodasAdatbazishoz();
+        AdatbazisInsert(kajaLista);
+
         KevesKaloriaKajak(kajaLista);
         HusokTaperteke(kajaLista);
         ZoldsegekTaperteke(kajaLista);
@@ -82,6 +84,14 @@ internal class Program
     private static void Sortores()
     {
         Console.WriteLine("------------------------------------------");
+    }
+    private static void AdatbazisInsert(List<Kaja> kajaLista)
+    {
+        foreach (var item in kajaLista)
+        {
+            MysqlHelper.TableInsert("copy_table", item.toInsertFormat());
+            //Console.WriteLine(item.toInsertFormat());
+        }
     }
 
     private static void Etelfelvetel()
