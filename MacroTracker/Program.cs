@@ -6,9 +6,9 @@ internal class Program
     private static void Main(string[] args)
     {
         List<Kaja> kajaLista = Beolvaso.Beolvasas();
-        KevesKaloriaKajak(kajaLista);
-        HusokTaperteke(kajaLista);
-        ZoldsegekTaperteke(kajaLista);
+        //KevesKaloriaKajak(kajaLista);
+        //HusokTaperteke(kajaLista);
+        //ZoldsegekTaperteke(kajaLista);
         //MysqlHelper.KapcsolodasAdatbazishoz();
         //AdatbazisInsert(kajaLista);
         //AdatokKiirasa(kajaLista);
@@ -18,6 +18,24 @@ internal class Program
         //MagasKaloriaKajak(kajaLista);
         //Sortores();
         Menu(kajaLista);
+        //LegkaloriasabbAlkoholok(kajaLista);
+
+
+        
+    }
+
+    private static void LegkaloriasabbAlkoholok(List<Kaja> kajaLista)
+    {
+        Console.WriteLine("Legkalóriadúsabb italok:");
+        Sortores();
+        foreach (var item in kajaLista)
+        {
+            if (item.Kategoria == "Drinks Alcohol Beverages" && item.Kaloria>150)
+            {
+                Console.WriteLine(item.ToString());
+            }
+        }
+        Sortores();
     }
 
     private static void Menu(List<Kaja> kajaLista)
@@ -28,6 +46,8 @@ internal class Program
             MenuSzovegKiiras(ref userInput);
             switch (userInput)
             {
+                case "0":
+                    break;
                 case "1":
                     Etelfelvetel();
                     break;
@@ -42,6 +62,18 @@ internal class Program
                     break;
                 case "5":
                     AdatbazisInsert(kajaLista);
+                    break;
+                case "6":
+                    ZoldsegekTaperteke(kajaLista);
+                    break;
+                case "7":
+                    HusokTaperteke(kajaLista);
+                    break;
+                case "8":
+                    KevesKaloriaKajak(kajaLista);
+                    break;
+                case "9":
+                    LegkaloriasabbAlkoholok(kajaLista);
                     break;
                 default:
                     Console.WriteLine("Nem értem mit szeretnél :(");
@@ -103,6 +135,10 @@ internal class Program
 3 - Összes adat kiírása
 4 - Kapcsolódás az adatbázishoz
 5 - Adatok feltöltése a kívánt táblába
+6 - Zöldségek tápértékeinek kiírása
+7 - Húsok tápértékeinek kiírása
+8 - Ételek kevés kalóriával kiírása
+9 - Legtöbb kalóriával rendelkező italok kiírása
 0 - EXIT
 Írd be a kivánt műveleted és üss egy entert: ";
         Console.Write(menuSzoveg);
