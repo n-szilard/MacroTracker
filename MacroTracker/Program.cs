@@ -26,8 +26,8 @@ internal class Program
         while (userInput != "0")
         {
             MenuSzovegKiiras(ref userInput);
-        
 
+        }
     }
 
 
