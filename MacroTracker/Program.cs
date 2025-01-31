@@ -6,16 +6,39 @@ internal class Program
     private static void Main(string[] args)
     {
         List<Kaja> kajaLista = Beolvaso.Beolvasas();
-        AdatokKiirasa(kajaLista);
-        Sortores();
+        //MysqlHelper.KapcsolodasAdatbazishoz();
+        //AdatbazisInsert(kajaLista);
+        //AdatokKiirasa(kajaLista);
+        //Sortores();
+        //Etelfelvetel();
+        //Sortores();
+        //MagasKaloriaKajak(kajaLista);
+        //Sortores();
+        Menu();
+    }
 
-        Etelfelvetel();
-        Sortores();
-        MagasKaloriaKajak(kajaLista);
-        Sortores();
-        MysqlHelper.KapcsolodasAdatbazishoz();
-        AdatbazisInsert(kajaLista);
+    private static void Menu()
+    {
+        string userInput = "";
+        while (userInput != "0")
+        {
+            MenuSzovegKiiras(ref userInput);
+        }
+    }
 
+    private static void MenuSzovegKiiras(ref string userInput)
+    {
+        string menuSzoveg = @$"
+Üdv a programunkban {Environment.UserName}!
+1 - Ételfelvétel
+2 - Magas kalóriatartalmú ételek listázása
+3 - Összes adat kiírása
+4 - Kapcsolódás az adatbázishoz
+5 - Adatok feltöltése a kívánt táblába
+0 - EXIT
+Írd be a kivánt műveleted és üss egy entert: ";
+        Console.Write(menuSzoveg);
+        userInput = Console.ReadLine();
     }
 
     private static void MagasKaloriaKajak(List<Kaja> lista)
