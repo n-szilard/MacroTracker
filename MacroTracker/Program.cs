@@ -129,10 +129,11 @@ internal class Program
     }
     private static void AdatbazisInsert(List<Kaja> kajaLista)
     {
+        Console.Write("Melyik tablába szeretnéd feltölteni az adatokat (MacroAdatbazis nevű adatbázisban): ");
+        string tableName = Console.ReadLine();
         foreach (var item in kajaLista)
         {
-            MysqlHelper.TableInsert("copy_table", item.toInsertFormat());
-            //Console.WriteLine(item.toInsertFormat());
+            MysqlHelper.TableInsert(tableName, item.toInsertFormat());
         }
     }
 
