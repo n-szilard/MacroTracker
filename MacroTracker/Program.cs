@@ -75,6 +75,9 @@ internal class Program
                 case "9":
                     LegkaloriasabbAlkoholok(kajaLista);
                     break;
+                case "10":
+                    TablaLetreHozas();
+                    break;
                 default:
                     Console.WriteLine("Nem értem mit szeretnél :(");
                     break;
@@ -82,6 +85,12 @@ internal class Program
         }
     }
 
+    private static void TablaLetreHozas()
+    {
+        Console.Write("Mi legyen az új táblád neve? (MacroAdatbazis nevű adatbázisba kerül): ");
+        string tableName = Console.ReadLine();
+        MysqlHelper.CreateTable(tableName);
+    }
 
     private static void ZoldsegekTaperteke(List<Kaja> lista)
     {
@@ -139,6 +148,7 @@ internal class Program
 7 - Húsok tápértékeinek kiírása
 8 - Ételek kevés kalóriával kiírása
 9 - Legtöbb kalóriával rendelkező italok kiírása
+10 - Megfelelő formátumú tábla létrehozása
 0 - EXIT
 Írd be a kivánt műveleted és üss egy entert: ";
         Console.Write(menuSzoveg);

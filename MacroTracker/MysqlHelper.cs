@@ -32,12 +32,29 @@ namespace MacroTracker
                 using (MySqlCommand command = new MySqlCommand($"INSERT INTO {tableName} VALUES ({values})", connection))
                 {
                     command.ExecuteNonQuery();
-                    Console.WriteLine("Sikeres insert!");
                 }
+                Console.WriteLine("Sikeres insert!");
             }
             catch (Exception error)
             {
                 Console.WriteLine($"Hiba az insert közben: {error.Message}");
+            }
+        }
+
+        public static void CreateTable(string tableName)
+        {
+            string tableFormat = $"CREATE TABLE `{tableName}` (`Nev` varchar(50) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL, `KulfMertek` varchar(50) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL, `Gram` int(11) NOT NULL, `Kaloria` int(11) NOT NULL, `Feherje` int(11) NOT NULL, `Zsir` int(11) NOT NULL, `TelitettZsir` int(11) NOT NULL, `Rost` int(11) NOT NULL, `Szenhidrat` int(11) NOT NULL, `Kategoria` varchar(50) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL)";
+            try
+            {
+                using (MySqlCommand command = new MySqlCommand(tableFormat, connection))
+                {
+                    command.ExecuteNonQuery();
+                    Console.WriteLine("Sikeres tábla létrehozás");
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine($"Hiba a tábla létrehozása közben: {error.Message}");
             }
         }
 
