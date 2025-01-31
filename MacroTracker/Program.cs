@@ -17,6 +17,7 @@ internal class Program
         //Sortores();
         //MagasKaloriaKajak(kajaLista);
         //Sortores();
+        Menu(kajaLista);
         //LegkaloriasabbAlkoholok(kajaLista);
 
 
@@ -38,12 +39,33 @@ internal class Program
     }
 
     private static void Menu()
+    private static void Menu(List<Kaja> kajaLista)
     {
         string userInput = "";
         while (userInput != "0")
         {
             MenuSzovegKiiras(ref userInput);
-
+            switch (userInput)
+            {
+                case "1":
+                    Etelfelvetel();
+                    break;
+                case "2":
+                    MagasKaloriaKajak(kajaLista);
+                    break;
+                case "3":
+                    AdatokKiirasa(kajaLista);
+                    break;
+                case "4":
+                    MysqlHelper.KapcsolodasAdatbazishoz();
+                    break;
+                case "5":
+                    AdatbazisInsert(kajaLista);
+                    break;
+                default:
+                    Console.WriteLine("Nem értem mit szeretnél :(");
+                    break;
+            }
         }
     }
 
