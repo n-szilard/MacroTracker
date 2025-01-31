@@ -27,7 +27,7 @@ internal class Program
         {
             MenuSzovegKiiras(ref userInput);
 
-        
+        }
     }
 
 
