@@ -14,7 +14,55 @@ internal class Program
         Sortores();
         MagasKaloriaKajak(kajaLista);
         Sortores();
+        KevesKaloriaKajak(kajaLista);
+        HusokTaperteke(kajaLista);
+        ZoldsegekTaperteke(kajaLista);
+        
 
+    }
+
+
+    private static void ZoldsegekTaperteke(List<Kaja> lista)
+    {
+        Console.WriteLine("Összes zöldségféle tápértéke:");
+        Sortores();
+        foreach (var item in lista)
+        {
+            if (item.Kategoria == "Vegetables")
+            {
+                Console.WriteLine(item.ToString());
+            }
+        }
+        Sortores();
+    }
+
+    private static void HusokTaperteke(List<Kaja> lista)
+    {
+        Console.WriteLine("Összes hús és tápértéke:");
+        Sortores();
+        foreach (var item in lista)
+        {
+            if (item.Kategoria == "Meat Poultry")
+            {
+                Console.WriteLine(item.ToString());
+            }
+        }
+        Sortores();
+    }
+        
+
+    private static void KevesKaloriaKajak(List<Kaja> lista)
+    {
+        Console.WriteLine("Ételek melyekben legfeljebb 50 kalória van");
+        Sortores();
+        foreach (var item in lista)
+        {
+            if (item.Kaloria <= 50)
+            {
+                Console.WriteLine(item.ToString());
+            }
+        }
+        Sortores();
     }
 
     private static void MagasKaloriaKajak(List<Kaja> lista)
@@ -28,6 +76,7 @@ internal class Program
                 Console.WriteLine(item.ToString());
             }
         }
+        Sortores();
     }
 
     private static void Sortores()
